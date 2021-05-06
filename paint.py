@@ -2,7 +2,7 @@ from turtle import *
 from freegames import vector
 import turtle    #Para usar las funciones de turtle
 
-#Codifo Modificado por:
+#Codigo Modificado por: Ariel Campos Hernández
 #Autor 1:Juan Pablo Elorriaga Gaitán
 #Autor 2: Ariel Campos Hernández
 
