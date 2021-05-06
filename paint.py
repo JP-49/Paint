@@ -13,7 +13,8 @@ def line(start, end):
     down()    #Baja la pluma, comienza a dibujar
     goto(end.x, end.y)
 
-def square(start, end):   
+
+def square(start, end):
     "Draw square from start to end."
     up()
     goto(start.x, start.y)
@@ -43,17 +44,38 @@ def circle(start, end):
     
     end_fill()
     
-    
+
 def rectangle(start, end):
     "Draw rectangle from start to end."
-    pass # TODO
-    
-    
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+
+    for count in range(2):  #El procedimiento se repite 2 veces
+        forward(end.x - start.x)    #Para calcular la base del rectangulo, tomará los clicks en el eje x
+        left(90)    #Gira 90 grados para continuar con la altura
+        forward(end.y - start.y)    #Para calcular la altura con los clicks seleccionados en el eje y
+        left(90)
+
+    end_fill()
+
+
 def triangle(start, end):
     "Draw triangle from start to end."
-    pass # TODO
-    
-    
+    up()
+    goto(start.x, start.y)
+    down()
+    begin_fill()
+
+    for count in range(3):  #Traza el triangulo calculando su longitud y girando 120 grados 3 veces
+        forward(end.x - start.x)
+        left(120)
+        
+    end_fill()
+
+
 def tap(x, y):
     "Store starting point or draw shape."
     start = state['start']
