@@ -1,45 +1,58 @@
 from turtle import *
 from freegames import vector
-import turtle 
+import turtle    #Para usar las funciones de turtle
+
+#Codifo Modificado por:
+#Autor 1:Juan Pablo Elorriaga Gaitán
+#Autor 2: Ariel Campos Hernández
 
 def line(start, end):
     "Draw line from start to end."
-    up()
+    up()      #Levanta la pluma
     goto(start.x, start.y)
-    down()
+    down()    #Baja la pluma, comienza a dibujar
     goto(end.x, end.y)
 
-def square(start, end):
+def square(start, end):   
     "Draw square from start to end."
     up()
     goto(start.x, start.y)
     down()
-    begin_fill()
+    begin_fill()    #Comienza a llenar la forma del dibujo
 
-    for count in range(4):
+    for count in range(4):   #Traza el cuadrado calculando su longitud y girando 90 grados 4 veces
         forward(end.x - start.x)
         left(90)
 
-    end_fill()
+    end_fill()   #Finaliza el relleno de la forma
+
 
 def circle(start, end):
     "Draw circle from start to end."
+    """
+    Dibuja un circulo con radio (end.x-start.x)/2
+    start: Punto inicial
+    end: Punto final
+    """
     up()
     goto(end.x, end.y)
-    radius=((end.x-start.x)/2)
+    radius=((end.x-start.x)/2)    #Funcion para calcular el radio desde los puntos marcados
     down()
-    begin_fill()
-    turtle.circle(radius)
+    begin_fill()    #Comienza a llenar la forma del dibujo
+    turtle.circle(radius)   #Funcion de turtle para crear un circulo 
     
     end_fill()
+    
     
 def rectangle(start, end):
     "Draw rectangle from start to end."
     pass # TODO
     
+    
 def triangle(start, end):
     "Draw triangle from start to end."
     pass # TODO
+    
     
 def tap(x, y):
     "Store starting point or draw shape."
@@ -53,24 +66,31 @@ def tap(x, y):
         shape(start, end)
         state['start'] = None
 
+
 def store(key, value):
     "Store value in state at key."
     state[key] = value
 
+
 state = {'start': None, 'shape': line}
 setup(420, 420, 370, 0)
 onscreenclick(tap)
-listen()
-onkey(undo, 'u')
+listen()     #Escucha los eventos del Teclado
+onkey(undo, 'u')    
+
+#Define la tecla asociada para cada color
 onkey(lambda: color('black'), 'K')
 onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+
+#Define la tecla asociada para cada figura
 onkey(lambda: color ('orange'),'O')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
 onkey(lambda: store('shape', rectangle), 'r')
 onkey(lambda: store('shape', triangle), 't')
+
 done()
