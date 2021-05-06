@@ -5,9 +5,9 @@ import turtle
 
 def line(start, end):
     "Draw line from start to end."
-    up()
+    up()	#Levanta la pluma
     goto(start.x, start.y)
-    down()
+    down()	#Baja la pluma, comienza a dibujar
     goto(end.x, end.y)
 
 
@@ -16,13 +16,13 @@ def square(start, end):
     up()
     goto(start.x, start.y)
     down()
-    begin_fill()
+    begin_fill()	#Comienza a llenar la forma del dibujo
 
-    for count in range(4):
+    for count in range(4):	#Traza el cuadrado calculando su longitud y girando 90 grados 4 veces
         forward(end.x - start.x)
         left(90)
 
-    end_fill()
+    end_fill()	#Finaliza el relleno de la forma
 
 
 def circle(start, end):
@@ -38,10 +38,10 @@ def rectangle(start, end):
     begin_fill()
 
 
-    for count in range(2):
-        forward(end.x - start.x)
-        left(90)
-        forward(end.y - start.y)
+    for count in range(2):	#El procedimiento se repite 2 veces
+        forward(end.x - start.x)	#Para calcular la base del rectangulo, tomará los clicks en el eje x
+        left(90)	#Gira 90 grados para continuar con la altura
+        forward(end.y - start.y)	#Para calcular la altura con los clicks seleccionados en el eje y
         left(90)
 
     end_fill()
@@ -54,7 +54,7 @@ def triangle(start, end):
     down()
     begin_fill()
 
-    for count in range(3):
+    for count in range(3):	#Traza el triangulo calculando su longitud y girando 120 grados 3 veces
         forward(end.x - start.x)
         left(120)
         
